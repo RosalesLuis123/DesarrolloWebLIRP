@@ -7,7 +7,7 @@
     <style>
         .gradient-background {
             width: 100%;
-            height: 175vh; /* Ajusta la altura según tus necesidades */
+            height: 200vh; /* Ajusta la altura según tus necesidades */
             background-image: linear-gradient(to bottom, #ffee00, #ff5900); /* Cambia los colores según lo que desees */
         }
     </style>
@@ -36,6 +36,15 @@
             cursor: pointer;
         }
     </style>
+    <style>
+        /* Aplica un estilo para mostrar elementos en columnas de 5 */
+        .column-list {
+          columns: 4;
+          -webkit-columns: 3;
+          -moz-columns: 4;
+          padding: 0;
+        }
+      </style>
 </head>
 <body class="gradient-background">
     <h1 style="text-align: center;">
@@ -47,17 +56,39 @@
     </div>
     <div style="display: flex; justify-content: center; align-items: center;">
         <img src="Imagenes/Amigos1.jpeg" alt="Foto Perfil"  width="450px" class="image-with-border">
+    </div> 
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <ol class="column-list">
+            <li>Dario</li>
+            <li>Mika</li>
+            <li>Alex</li>
+            <li>Gomez</li>
+            <li>Btt</li>
+            <li>Nicolas</li>
+            <li>Noelia</li>
+            <li>Naty</li>
+            <li>Manu</li>
+        </ol>
+        
     </div>
     <h1 style="text-align: center;">
         (Carnita Asada😎)</h1>
     <div style="display: flex; justify-content: center; align-items: center;">
         <img src="Imagenes/Amigos3.jpeg" alt="Foto Perfil"  width="450px" class="image-with-border">
     </div>
+    <div  style="display: flex; justify-content: center; align-items: center;">
+        <ol>
+            <li>Lucia</li>
+            <li>Javier</li>
+        </ol>
+    </div>
+
     <div class="button-bar">
         <a href="mifamilia.html" class="button">Mi Familia</a>
         <a href="miciudad.html" class="button">Mi Ciudad</a>
         <a href="Yo.html" class="button">Mi Perfil</a>
         <a href="mishobbies.html" class="button">Mis Hobbies</a>
     </div>
+
 </body>
 </html>
