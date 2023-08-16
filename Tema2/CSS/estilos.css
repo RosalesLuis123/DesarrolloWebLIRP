@@ -1,0 +1,19 @@
+p{
+    background-color: aqua;
+    color: rgb(0, 0, 0);
+    border: 10px double black;
+    margin: 30px 20px 4px 5px;
+    padding: 12px;
+    text-align: justify;    
+}
+.resaltado{
+    font-weight: bolder;
+    color: blue;
+    display: initial;
+    visibility: hidden;
+}
+
+#diferente{
+    background-color: azure;
+    color: brown;
+}

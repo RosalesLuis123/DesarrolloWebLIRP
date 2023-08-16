@@ -1,0 +1,8 @@
+.conteiner{
+display: align-self;
+flex-direction: row;
+flex-wrap: wrap;
+width: 250px;
+border: 1px solid green;
+justify-content: space-evenly;
+}
