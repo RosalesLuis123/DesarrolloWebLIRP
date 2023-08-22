@@ -1,0 +1,42 @@
+.resaltado {
+    font-weight: bolder;
+    color:red;
+    display:inline;
+    visibility: hidden;
+}
+
+dl {
+    background-color: rgb(232, 205, 0);
+    color: rgb(217, 255, 0);
+    border: 5px dotted rgb(255, 115, 0);
+    margin: 0px 30px 50px 50px;
+    padding: 10px 30px 10px 10px;
+    text-align: justify;
+    
+}
+ol {
+    background-color: rgb(128, 0, 232);
+    border: 5px dotted rgb(255, 0, 0);
+    margin: 0px 30px 50px 50px;
+    padding: 10px 30px 10px 10px;
+    text-align: justify;
+    
+}
+h3 {
+    background-color: rgb(232, 205, 0);
+    color: rgb(255, 140, 0);
+    border: 5px dotted rgb(255, 115, 0);
+    margin: 0px 30px 50px 50px;
+    padding: 10px 30px 10px 10px;
+    text-align: justify;
+    
+}
+.Margenes{
+    background-color: rgb(232, 205, 0);
+    color: rgb(255, 140, 0);
+    border: 5px dotted rgb(255, 115, 0);
+    margin: 0px 30px 50px 50px;
+    padding: 10px 30px 10px 10px;
+    text-align: justify;
+    
+}
