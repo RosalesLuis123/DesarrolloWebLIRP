@@ -1,0 +1,121 @@
+.rojo {
+    color: red;
+}
+
+.amarillo {
+    color: yellow;
+}
+
+.verde {
+    color: green;
+}
+
+.naranja {
+    color: orange;
+}
+
+.azul {
+    color: blue;
+}
+
+.bg-rojo {
+    background-color: red;
+}
+
+.bg-amarillo {
+    background-color: yellow;
+}
+
+.bg-verde {
+    background-color: green;
+}
+
+.bg-naranja {
+    background-color: orange;
+}
+
+.bg-azul {
+    background-color: blue;
+}
+
+.contenedor {
+    width: 700px;
+    margin: 0 auto;
+
+}
+
+.Colores1 {
+    display: flex;
+    width: 700px;
+    height: 30px;
+    flex-wrap: wrap;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.CROJO,
+.CVerde {
+    width: 350px;
+}
+
+.CAzul,
+.CAmarillo {
+    width: 100px;
+    height: 200px;
+}
+
+.CNaranja {
+    width: 700px;
+    height: 150px;
+}
+
+/* Estilos de la sección de lista */
+.CLista {
+    width: 500px;
+    height: 200px;
+}
+
+/* Estilos de la tabla dentro de .ListaC */
+.ListaC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+}
+
+/* Estilos para la tabla dentro de .ListaC */
+.ListaC table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 400px; /* Ancho máximo de la tabla */
+}
+
+.ListaC th,
+.ListaC td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+.ListaC2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+}
+
+/* Estilos para la tabla dentro de .ListaC */
+.ListaC2 table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 400px; /* Ancho máximo de la tabla */
+}
+
+.ListaC2 th,
+.ListaC2 td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
