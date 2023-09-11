@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    /*align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Altura del 100% del viewport (ventana del navegador) */
+    margin: 0;
+    background-color: #00b7ff; /* Color de fondo del cuerpo */
+}
+
+.contenedor {
+    text-align: center; /* Centra el texto horizontalmente */
+    padding: 20px; /* Espacio interno */ /* Color de fondo del contenedor */
+    margin: 0 auto;
+    border-radius: 5px; /* Bordes redondeados para el contenedor */
+}
+.bg_celeste{
+    background-color: #00b7ff;
+}
+/* Estilo para la tabla de alumnos */
+#tabla-alumnos {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+/* Estilos para las celdas de encabezado */
+#tabla-alumnos th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Estilos para las celdas de datos */
+#tabla-alumnos td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Borde inferior para separar las filas */
+}
+
+/* Estilos para las filas impares (opcional, para mayor claridad) */
+#tabla-alumnos tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para los enlaces de operaciones */
+.operation-links {
+    margin-right: 10px;
+}
