@@ -1,4 +1,6 @@
 <?php
+include('verificar.php');
+include('permiso.php');
 include("conexion.php");
 $nombres=$_POST['nombres'];
 $apellidos=$_POST['apellidos'];
@@ -17,5 +19,4 @@ WHERE  id=$id ";
 $con->close()
 ?>
 <meta http-equiv="refresh" content="3; url=read.php" />
-
 
