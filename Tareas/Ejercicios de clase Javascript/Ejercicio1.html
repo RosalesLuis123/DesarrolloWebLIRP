@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let numero1 = parseFloat(prompt("Introduce el primer número:"));
+let numero2 = parseFloat(prompt("Introduce el segundo número:"));
+let numero3 = parseFloat(prompt("Introduce el tercer número:"));
+
+let mayor, menor;
+
+if (numero1 >= numero2 && numero1 >= numero3) {
+  mayor = numero1;
+} else if (numero2 >= numero1 && numero2 >= numero3) {
+  mayor = numero2;
+} else {
+  mayor = numero3;
+}
+
+if (numero1 <= numero2 && numero1 <= numero3) {
+  menor = numero1;
+} else if (numero2 <= numero1 && numero2 <= numero3) {
+  menor = numero2;
+} else {
+  menor = numero3;
+}
+
+document.write("El número mayor es: " + mayor);
+document.write("El número menor es: " + menor);
+    </script>
+</body>
+</html>

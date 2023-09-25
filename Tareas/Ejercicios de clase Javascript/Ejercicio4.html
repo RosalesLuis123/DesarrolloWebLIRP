@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function esPalindromo(cadena) {
+  cadena = cadena.toLowerCase().replace(/ /g, "");
+  let reverso = cadena.split("").reverse().join("");
+  if (cadena === reverso) {
+    return "Es un palíndromo.";
+  } else {
+    return "No es un palíndromo.";
+  }
+}
+let texto = prompt("Introduce una cadena de texto para verificar si es un palíndromo:");
+let resultado = esPalindromo(texto);
+document.write(resultado);
+    </script>
+</body>
+</html>

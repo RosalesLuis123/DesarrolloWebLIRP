@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calcularF(numero){
+            if (numero === 0 || numero === 1){
+                return 1;
+            }
+            else {
+                return numero * calcularF(numero - 1);
+            }
+        }
+        let numero = parseInt(prompt("Introduce Un número"));
+        let factorial = calcularF(numero);
+        document.write("El factorial de" + numero + "es" + factorial);
+    </script>
+</body>
+</html>

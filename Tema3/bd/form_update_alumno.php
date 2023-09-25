@@ -27,7 +27,7 @@ include('permiso.php');?>
         </div>
         <div>
             <label for="fotografia">Fotografia</label>
-            <input type="file" name="fotografia">
+            <input type="multipart" name="fotografia">
         </div>
         <div>
             <label for="nombres">Nombres</label>
