@@ -1,0 +1,32 @@
+.azul {
+    color: blue;
+}
+.rojo {
+    color: red;
+}
+.amarillo {
+    color: yellow;
+}
+.verde {
+    color: green;
+}
+.bg-rojo {
+    background-color: red;
+}
+body {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    /*align-items: center; /* Centra verticalmente */ /* Altura del 100% del viewport (ventana del navegador) */
+    margin: 0;
+    /*background-color: #00b7ff; /* Color de fondo del cuerpo */
+}
+.contenedor {
+    width: 900px;
+    background-color: #c0cce4;
+}
+.contenido{
+    text-align: center;
+}
+.text {
+    flex: 1;
+}
