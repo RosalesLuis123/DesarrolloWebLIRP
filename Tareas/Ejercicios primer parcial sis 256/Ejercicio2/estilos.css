@@ -50,27 +50,37 @@ body {
 .abajo{
     display: flex;
     flex-wrap: nowrap;
-
-    height: 300px;
+    width: 900px;
 }
 .izq{
     width: 120px;
     display: flex;
     flex-direction: column;
-    background-color: #484444;
+    background-color: black;
     border: 1px solid black;
     justify-content: center;
 }
-.eje1, .eje2 , .eje3, .eje4{
+.medio{
+    height: 50 px;
+    background-color: #484444;
+    border: 1px solid black;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.eje1, .eje2, .eje3, .eje4{
     width: 100px;
     border: 1px solid black;
     background-color: white;
     text-align: center;
+    display: inline-block;
+    margin-right: 10px; /* Add spacing between the elements if needed */
 }
 
 .der{
-    width: 780px;
-background-color: #f2f2f2;
+background-color: #d9d9d9;
+width: 900px;
 }
 .nomb{
     margin-top: 30px;
