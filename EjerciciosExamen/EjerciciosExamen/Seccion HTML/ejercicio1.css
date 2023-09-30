@@ -1,0 +1,102 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.contenido {
+    width: 900px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    border: 1px solid black;
+}
+.arriba{
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: cadetblue;
+    height: 200px;
+    text-align: center;
+    align-items: center;
+}
+#titulo {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    text-align: center;
+  }
+.logo{
+
+    margin-left: 100px;
+    margin-right: -50px;
+}
+#logo{
+    height: 100px;
+}
+.rojo {
+    color: red;
+  }
+  .azul{
+    color: blue;
+  }
+  .amarillo{
+    color: yellow;
+  }
+  .verde{
+    color: green;
+  }
+.abajo{
+    display: flex;
+    flex-wrap: nowrap;
+
+    height: 300px;
+}
+.izq{
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    border: 1px solid black;
+    justify-content: center;
+}
+.eje1{
+    width: 100px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+}
+.eje2{
+    width: 100px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+}
+.eje3{
+    width: 100px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+}
+.eje4{
+    width: 100px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+}
+
+.der{
+    width: 780px;
+background-color: whitesmoke;
+}
+.nomb{
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.ejel{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.li{
+    margin-left: 20px;
+}
