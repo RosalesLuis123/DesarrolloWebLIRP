@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Ingrese la cantidad de filas y columnas</h1>
+    <form action="menu.php" method="POST">
+        <label for="a">numero1:</label>
+        <input type="number" name="a" required>
+        <br>
+        <label for="b">numero2:</label>
+        <input type="number" name="b" required>
+        <br>
+        <select name="opcion" required>
+            <option value="suma">suma</option>
+            <option value="resta">RESTA</option>
+            <option value="division">DIVISION</option>
+            <option value="multiplicacion">MULTIPLICACION</option>
+        </select>
+        <input type="submit" value="iniciar operacion">
+    </form>
+</body>
+</html>
