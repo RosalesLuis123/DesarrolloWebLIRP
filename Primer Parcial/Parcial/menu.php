@@ -30,10 +30,10 @@ class Calculadora {
     }
 }
 
-if (isset($_POST['opcion'])) {
-    $opcion = $_POST['opcion'];
-    $a = $_POST['a'];
-    $b = $_POST['b'];
+if (isset($_GET['opcion'])) {
+    $opcion = $_GET['opcion'];
+    $a = $_GET['a'];
+    $b = $_GET['b'];
     
     $calculadora = new Calculadora($a, $b); 
 
@@ -55,8 +55,17 @@ if (isset($_POST['opcion'])) {
 
 ?>
 
-<?php
-if (isset($resultados)) {
-    echo "<h2>Resultado:<span>$resultados</span></h2>";
-}
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+</head>
+<body>
+    <?php
+    if (isset($resultados)) {
+        echo "<h2>Resultado: <span>$resultados</span></h2>";
+    }
+    ?>
+</body>
+</html>
