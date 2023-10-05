@@ -40,7 +40,7 @@
         <div>
             <label for="id_tipo_habitacion">Tipo de Habitación:</label>
             <select name="id_tipo_habitacion">
-                <option value="">Selecciona un tipo de habitación</option>
+                <option value="">Todas</option>
                 <?php
                 while ($row_tipo_habitacion = $resultado_tipos_habitacion->fetch_assoc()) {
                     $id_tipo_habitacion = $row_tipo_habitacion['id'];
@@ -54,19 +54,21 @@
     </form>
 
     <?php
-   if (isset($_GET['id_tipo_habitacion'])) {
-    $id_tipo_habitacion = $_GET['id_tipo_habitacion'];
-    $sql = "SELECT h.id, nro, h.id_tipo_habitacion, bano_privado, espacio, precio, t.descripcion as tipo_habitacion, f.fotografia 
-            FROM habitacion h
-            LEFT JOIN tipo_habitacion t ON h.id_tipo_habitacion = t.id
-            LEFT JOIN fotos_habitacion f ON h.id = f.id_habitacion
-            WHERE h.id_tipo_habitacion = $id_tipo_habitacion";
-} else {
-    $sql = "SELECT h.id, nro, h.id_tipo_habitacion, bano_privado, espacio, precio, t.descripcion as tipo_habitacion, f.fotografia 
-            FROM habitacion h
-            LEFT JOIN tipo_habitacion t ON h.id_tipo_habitacion = t.id
-            LEFT JOIN fotos_habitacion f ON h.id = f.id_habitacion";
-}
+    if (isset($_GET['id_tipo_habitacion']) && $_GET['id_tipo_habitacion'] !== "") {
+        $id_tipo_habitacion = $_GET['id_tipo_habitacion'];
+        $sql = "SELECT h.id, h.nro, h.id_tipo_habitacion, h.bano_privado, h.espacio, h.precio, t.descripcion as tipo_habitacion, f.fotografia, th.numero_camas
+                FROM habitacion h
+                LEFT JOIN tipo_habitacion t ON h.id_tipo_habitacion = t.id
+                LEFT JOIN fotos_habitacion f ON h.id = f.id_habitacion
+                LEFT JOIN tipo_habitacion th ON h.id_tipo_habitacion = th.id
+                WHERE h.id_tipo_habitacion = $id_tipo_habitacion";
+    } else {
+        $sql = "SELECT h.id, h.nro, h.id_tipo_habitacion, h.bano_privado, h.espacio, h.precio, t.descripcion as tipo_habitacion, f.fotografia, th.numero_camas
+                FROM habitacion h
+                LEFT JOIN tipo_habitacion t ON h.id_tipo_habitacion = t.id
+                LEFT JOIN fotos_habitacion f ON h.id = f.id_habitacion
+                LEFT JOIN tipo_habitacion th ON h.id_tipo_habitacion = th.id";
+    }
 
     $resultado = $con->query($sql);
 
@@ -75,13 +77,14 @@
         <div class="ListaC2">
             <table>
                 <tr>
-                    <th><a href="read.php?orden=fotografia">fotografia</a></th>
-                    <th><a href="read.php?orden=apellidos">Numero</a></th>
+                    <th><a href="read.php?orden=fotografia">Fotografía</a></th>
+                    <th><a href="read.php?orden=apellidos">Número</a></th>
                     <th><a href="read.php?orden=CU">Tipo habitación</a></th>
-                    <th><a href="read.php?orden=carrera">Nro Banos</a></th>
-                    <th><a href="read.php?orden=carrera">espacio</a></th>
-                    <th><a href="read.php?orden=carrera">precio</a></th>
-                    <th><a href="read.php?orden=carrera">operaciones</a></th>
+                    <th><a href="read.php?orden=carrera">Nro Baños</a></th> 
+                    <th><a href="read.php?orden=carrera">Nro camas</a></th> 
+                    <th><a href="read.php?orden=carrera">Espacio</a></th>
+                    <th><a href="read.php?orden=carrera">Precio</a></th>
+                    <th><a href="read.php?orden=carrera">Operaciones</a></th>
                 </tr>
                 <?php while ($row = $resultado->fetch_assoc()) { ?>
                     <tr>
@@ -89,6 +92,7 @@
                         <td><?php echo $row['nro']; ?></td>
                         <td><?php echo $row['tipo_habitacion']; ?></td>
                         <td><?php echo $row['bano_privado']; ?></td>
+                        <td><?php echo $row['numero_camas']; ?></td>
                         <td><?php echo $row['espacio']; ?></td>
                         <td><?php echo $row['precio']; ?></td>
                         <td>
