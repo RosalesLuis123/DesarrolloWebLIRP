@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Mayor</title>
+</head>
+<body>
+    <h1>Calculadora de Mayor</h1>
+    <label for="A">Valor de A:</label>
+    <input type="number" id="A">
+    <br>
+    <label for="B">Valor de B:</label>
+    <input type="number" id="B">
+    <br>
+    <label for="C">Valor de C:</label>
+    <input type="number" id="C">
+    <br>
+    <button onclick="calcularMayor()">Calcular Mayor</button>
+    <script>
+        function calcularMayor() {
+            var a = parseFloat(document.getElementById("A").value);
+            var b = parseFloat(document.getElementById("B").value);
+            var c = parseFloat(document.getElementById("C").value);
+
+            var mayor;
+
+            if (a >= b && a >= c) {
+                mayor = document.getElementById("A");
+            } else if (b >= a && b >= c) {
+                mayor = document.getElementById("B");
+            } else {
+                mayor = document.getElementById("C");
+            }
+            mayor.style.backgroundColor = "#DCD0FF";
+        }
+    </script>
+</body>
+</html>

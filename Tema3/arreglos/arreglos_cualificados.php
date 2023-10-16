@@ -1,12 +1,13 @@
 <?php
 $a=[];
-$a["nombre"]=juan;
-$a["apellido"]=perez;
-$a["edad"]=90;
-$a["telefono"]=u923u3;
+$a["nombre"]="juan";
+$a["apellido"]="perez";
+$a["edad"]=30;
+$a["telefono"]="12345678";
+echo "<br>";
+echo "<h1> Recorrer conel ciclo foreachon indices </h1>";
 foreach ($a as $indice=>$elemento)
 {
     echo $indice."=>".$elemento;
+    echo "<br>";
 }
-$letras3=[0=>"a",1=>"b",2=>"c"];
-?>
