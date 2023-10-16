@@ -16,13 +16,17 @@
     <br>
     <button onclick="calcularMayor()">Calcular Mayor</button>
     <script>
+     
         function calcularMayor() {
+            document.getElementById("A").style.backgroundColor = "";
+            document.getElementById("B").style.backgroundColor = "";
+            document.getElementById("C").style.backgroundColor = "";
             var a = parseFloat(document.getElementById("A").value);
             var b = parseFloat(document.getElementById("B").value);
             var c = parseFloat(document.getElementById("C").value);
-
             var mayor;
-
+           
+               
             if (a >= b && a >= c) {
                 mayor = document.getElementById("A");
             } else if (b >= a && b >= c) {
@@ -30,7 +34,7 @@
             } else {
                 mayor = document.getElementById("C");
             }
-            mayor.style.backgroundColor = "#DCD0FF";
+            mayor.style.backgroundColor = "red";   
         }
     </script>
 </body>
