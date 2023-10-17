@@ -5,40 +5,40 @@
 </head>
 <body>
     <h1>Calculadora de Mayor</h1>
-    <label for="N">Número de elementos:</label>
-    <input type="number" id="N">
-    <button onclick="Llenar()">Llenar</button>
+    <label for="n">Número de elementos:</label>
+    <input type="number" id="n">
+    <button onclick="llenar()">Llenar</button>
     <br>
-    <div id="siuu"></div>
+    <div id="elemento"></div>
     <button onclick="calcularMayor()">Calcular Mayor</button>
-    <p id="resultado"></p>
     <script>
-        function Llenar() {
-            var n = parseInt(document.getElementById("N").value);
-            html = '';
-            for (var i = 1; i <= n; i++) {
-                var input = document.createElement("input");
-                input.type = "number";
-                input.id = "input" + i;
-                inputContainer.appendChild(input);
+        function llenar() {
+            var n = parseInt(document.getElementById("n").value);
+            var html = "";
+
+            for (var i = 0; i < n; i++) {
+                html += `<input type="number" name="n"><br><br>`;
             }
+
+            document.getElementById("elemento").innerHTML = html;
         }
+
         function calcularMayor() {
-            var n = parseInt(document.getElementById("N").value);
+            var numeros = document.getElementsByName("n");
             var mayor = -Infinity;
             var mayorInput = null;
 
-            for (var i = 1; i <= n; i++) {
-                var inputValue = parseFloat(document.getElementById("input" + i).value);
+            for (var i = 0; i < numeros.length; i++) {
+                var inputValue = parseFloat(numeros[i].value);
                 if (inputValue > mayor) {
                     mayor = inputValue;
-                    mayorInput = document.getElementById("input" + i);
+                    mayorInput = numeros[i];
                 }
             }
 
             if (mayorInput) {
                 mayorInput.style.backgroundColor = "yellow";
-                mayorInput.nextElementSibling.textContent = "Número Mayor: " + mayor;
+                mayorInput.nextElementSibling.textContent = `Número Mayor: ${mayor}`;
             }
         }
     </script>
