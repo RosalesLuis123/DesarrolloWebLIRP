@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora de Mayor</title>
 </head>
 <body>
-    
+    <h1>Calculadora de Mayor</h1>
+    <label for="N">Número de elementos:</label>
+    <input type="number" id="N">
+    <button onclick="Llenar()">Llenar</button>
+    <br>
+    <div id="siuu"></div>
+    <button onclick="calcularMayor()">Calcular Mayor</button>
+    <p id="resultado"></p>
+    <script>
+        function Llenar() {
+            var n = parseInt(document.getElementById("N").value);
+            html = '';
+            for (var i = 1; i <= n; i++) {
+                var input = document.createElement("input");
+                input.type = "number";
+                input.id = "input" + i;
+                inputContainer.appendChild(input);
+            }
+        }
+        function calcularMayor() {
+            var n = parseInt(document.getElementById("N").value);
+            var mayor = -Infinity;
+            var mayorInput = null;
+
+            for (var i = 1; i <= n; i++) {
+                var inputValue = parseFloat(document.getElementById("input" + i).value);
+                if (inputValue > mayor) {
+                    mayor = inputValue;
+                    mayorInput = document.getElementById("input" + i);
+                }
+            }
+
+            if (mayorInput) {
+                mayorInput.style.backgroundColor = "yellow";
+                mayorInput.nextElementSibling.textContent = "Número Mayor: " + mayor;
+            }
+        }
+    </script>
 </body>
 </html>
