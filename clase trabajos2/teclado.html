@@ -29,7 +29,7 @@
             <td class="borde-superior" onclick="marcar('9')" id="c9">9</td>
         </tr>
         <tr>
-            <td class="borde-derecho borde-superior" onclick="marcar('*')" id="c*">*</td>
+            <td class="borde-derecho borde-superior" onclick="borrar('*')" id="c*">*</td>
             <td class="borde-derecho borde-superior" onclick="marcar('0')" id="c0">0</td>
             <td class="borde-superior" onclick="limpiar()">limpiar</td>
         </tr>
@@ -47,11 +47,19 @@
         function mostar(){
             if (document.getElementById('contrasena').type == 'password'){
                 document.getElementById('contrasena').type = 'text';  
+                document.getElementById("boton").innerHTML = 'Ocultar'; 
             }
             else{
                 document.getElementById('contrasena').type = 'password';
+                document.getElementById("boton").innerHTML = 'Mostrar'; 
             }
         }
+        function borrar() {
+                var contrasenaInput = document.getElementById('contrasena');
+                contrasenaInput.value = contrasenaInput.value.slice(0, -1);
+        }
+
+
     </script>
 </body>
 </html>
