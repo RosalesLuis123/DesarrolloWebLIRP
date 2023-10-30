@@ -1,0 +1,36 @@
+body {
+  background-color: #87CEEB;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.person {
+  width: 100px;
+  height: 200px;
+  position: relative;
+}
+
+.person .head {
+  background-color: #8B4513;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.person .head .face {
+  background-color: #8B4513;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
