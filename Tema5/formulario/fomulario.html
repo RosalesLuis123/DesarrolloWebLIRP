@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="provincias.php" method="post">
+        <div>
+            <label for="nombres">Nombre</label>
+            <input type="text" name="nombres" id="nombres">
+        </div>
+        <div>
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" id="apellido">
+        </div>
+        <div>
+            <label for="departamento">Departamento</label>
+            <select name="departamento" id="departamento" onselect="cargarProvincia">
+         
+                <option value="1">La Paz</option>
+                <option value="2">Santa Cruz</option>
+                <option value="3">Cochabamba</option>
+                <option value="4">Potosí</option>
+                <option value="5">Oruro</option>
+                <option value="6">Tarija</option>
+                <option value="7">Beni</option>
+                <option value="8">Pando</option>
+                <option value="9">Chuquisaca</option>
+            </select>
+        </div>
+        <div>
+            <label for="provincia">Provincia</label>
+            <select name="provincia" id="provincia">
+
+            </select>
+        </div>
+        
+    </form>
+    <script>
+        function cargarProvincia(){
+            document.getElementByid("departamento").value;
+            
+        }
+    </script>
+</body>
+</html>
