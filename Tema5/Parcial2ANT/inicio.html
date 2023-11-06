@@ -12,7 +12,7 @@
     <div id="menu">
         <ul>
             <li><a href="javascript:crearform()">Pregunta 2</a></li>
-            <li>Pregunta 3</li>
+            <li><a href="javascript:forminsertar()">Pregunta 3</a></li>
             <li>Pregunta 4</li>
             <li>Pregunta 5</li>
         </ul>
@@ -21,7 +21,7 @@
     <div id="contenido">
 
     </div>
-
+    <script src="ajax.js"></script>
     <script>
         function crearform() {
             const contenido = document.getElementById("contenido");
@@ -54,6 +54,14 @@
         html += '</table>';
         Container.innerHTML = html;
         }}
+        function forminsertar() {
+            document.getElementById("titulo").textContent = "Pregunta 3 Insertar en fetch";
+            fetch("forminsertar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("contenido").innerHTML = data;
+                });
+        }
     </script>
 </body>
 </html>
