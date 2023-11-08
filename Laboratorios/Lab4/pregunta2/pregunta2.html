@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrandar y Reducir Imagen</title>
+    <style>
+        .btt {
+            background-color: #609cd4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="img-container">
+            <img id="Imagen" src="pato.jpg">
+        </div>
+        <br>
+        <button onclick="agrandarImagen()" class="btt">Agrandar</button>
+        <button onclick="reducirImagen()" class="btt">Reducir</button>
+        <input type="number" id="cantidad">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
