@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="estilos.css">
+  
+  <title>Tabla</title>
+</head>
+<body>
+  <div class="contenido">
+  <h1>Tabla</h1>
+  <label for="numero">Tabla del:</label>
+  <input type="text" id="numero" placeholder="Introduce un número menor a 10">
+  <label>Operación:</label>
+  <input type="radio" name="operacion" value="multiplicar" checked> Multiplicar
+  <input type="radio" name="operacion" value="sumar"> Sumar
+  <input type="radio" name="operacion" value="resta"> Resta
+  <input type="radio" name="operacion" value="division"> Division
+  <br>
+  <label for="limite">Hasta el número:</label>
+  <input type="text" id="limite" placeholder="Introduce el límite para la tabla">
+  <br>
+  <br>
+  <button id="btnTabla"onclick="mostrarTabla()">Tabla</button>
+  <br>
+  <div id="Resultado" >La tabla</div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function mostrarTabla() {
+        var numero = parseInt(document.getElementById('numero').value);
+        var limite = parseInt(document.getElementById('limite').value);
+        var operacion = document.querySelector('input[name="operacion"]:checked').value;
+  
+        if (isNaN(numero) || numero >= 10 || isNaN(limite) || limite <= 0) {
+          alert('Por favor, introduce números válidos.');
+          return;
+        }
+        var resultado = '';
+        for (var i = 1; i <= limite; i++) {
+        if (operacion === 'multiplicar') {
+        resultado += numero + ' x ' + i + ' = ' + (numero * i) + '<br>';
+        } else if (operacion === 'sumar') {
+        resultado += numero + ' + ' + i + ' = ' + (numero + i) + '<br>';
+        } else if (operacion === 'resta') {
+        resultado += numero + ' - ' + i + ' = ' + (numero - i) + '<br>';
+        } else if (operacion === 'division') {
+        resultado += numero + ' / ' + i + ' = ' + (numero / i) + '<br>';
+        }}
+        document.getElementById('Resultado').innerHTML = resultado;
+      }
+      document.getElementById('btnTabla').addEventListener('click', mostrarTabla);
+    });
+    mostrarTabla();
+  </script>
+  
+</body>
+</html>

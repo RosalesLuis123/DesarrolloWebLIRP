@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+    
+    <title>Tres en Raya</title>
+</head>
+<body>
+
+<div style="text-align: center;">
+    <h2>Tres en Raya</h2>
+    <div id="tablero"></div>
+    <div id="mensaje">Turno: X</div>
+</div>
+
+
+
+<script>
+    let turno = 'X';
+    const tablero = Array(9).fill('');
+
+    function actualizarTablero() {
+        const tableroElement = document.getElementById('tablero');
+        tableroElement.innerHTML = '';
+
+        for (let i = 0; i < tablero.length; i++) {
+            const boton = document.createElement('button');
+            boton.innerText = tablero[i];
+            boton.addEventListener('click', () => manejarClic(i));
+
+            tableroElement.appendChild(boton);
+        }
+    }
+
+    function manejarClic(indice) {
+        if (tablero[indice] === '') {
+            tablero[indice] = turno;
+            turno = turno === 'X' ? 'O' : 'X';
+            actualizarTablero();
+            actualizarMensaje();
+        } else {
+            alert('Casilla ocupada. Elija otra casilla.');
+        }
+    }
+
+    function actualizarMensaje() {
+        const mensajeElement = document.getElementById('mensaje');
+        mensajeElement.innerText = `Turno: ${turno}`;
+    }
+
+    actualizarTablero();
+    actualizarMensaje();
+</script>
+</body>
+</html>
