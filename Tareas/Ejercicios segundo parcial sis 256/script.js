@@ -137,3 +137,9 @@ function generarTabla() {
     }
     document.getElementById('Resultado').innerHTML = resultado;
 }
+// Agrega una función para actualizar el mensaje en inicio.html
+function actualizarMensajeTresEnRaya(turno) {
+    // Encuentra el elemento con el ID 'mensaje' en inicio.html y actualiza su contenido
+    const mensajeElement = document.getElementById('mensaje');
+    mensajeElement.innerText = `Turno: ${turno}`;
+}
