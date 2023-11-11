@@ -54,13 +54,12 @@ function actualizarImagen() {
 
     var libroSeleccionado = selectLibros.options[selectLibros.selectedIndex].value;
 
-    // Realizar una solicitud asíncrona al servidor
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'datos.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            // Actualizar la imagen con la respuesta del servidor
+            
             var respuesta = JSON.parse(xhr.responseText);
             divImagen.innerHTML = '<img src="' + respuesta.imagen + '" alt="' + libroSeleccionado + '" id="imagenLibro">';
         }
@@ -74,22 +73,23 @@ function actualizarUsuario(btn) {
     var idUsuario = btn.getAttribute('data-id');
     var nivelActual = btn.getAttribute('data-nivel');
 
-    // Cambiar el nivel localmente antes de la respuesta del servidor
     var nuevoNivel = (nivelActual == 1) ? 0 : 1;
 
-    // Realizar una solicitud asíncrona al servidor
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'listar.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            // Actualizar el botón con el nuevo nivel
+       
             btn.setAttribute('data-nivel', xhr.responseText);
-            btn.innerText = (xhr.responseText == 1) ? 'Cambiar a Administrador' : 'Cambiar a Usuario';
+            btn.innerText = (xhr.responseText == 1) ? 'Cambiar a Usuario' : 'Cambiar a Administrador';
 
-            // Cambiar el color del botón según el nuevo nivel
             btn.classList.remove('verde', 'rojo');
             btn.classList.add(xhr.responseText == 0 ? 'verde' : 'rojo');
+
+            var fila = btn.closest('tr');
+            var nivelCell = fila.querySelector('.nivel');
+            nivelCell.innerText = (xhr.responseText == 1) ? 'Administrador' : 'Usuario';
         }
     };
     xhr.send('id=' + idUsuario + '&nivel=' + nuevoNivel);
@@ -137,9 +137,7 @@ function generarTabla() {
     }
     document.getElementById('Resultado').innerHTML = resultado;
 }
-// Agrega una función para actualizar el mensaje en inicio.html
 function actualizarMensajeTresEnRaya(turno) {
-    // Encuentra el elemento con el ID 'mensaje' en inicio.html y actualiza su contenido
     const mensajeElement = document.getElementById('mensaje');
     mensajeElement.innerText = `Turno: ${turno}`;
 }

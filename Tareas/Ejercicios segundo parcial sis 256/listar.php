@@ -62,6 +62,7 @@ button.rojo {
                     <th>ID</th>
                     <th><a>Correos</a></th>
                     <th><a>Nombre Completo</a></th>
+                    <th><a>Nivel</a></th>
                     <th>Operación</th>
                 </tr>
                 <?php while ($row = $resultado->fetch_assoc()) { ?>
@@ -69,6 +70,7 @@ button.rojo {
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['usuario']; ?></td>
                         <td><?php echo $row['nombrecompleto']; ?></td>
+                        <td class="nivel"><?php echo ($row['nivel'] == 1) ? 'Administrador' : 'Usuario'; ?></td>
                         <td>
                             <button class="usuario <?php echo ($row['nivel'] == 1) ? 'rojo' : 'verde'; ?>" data-id="<?php echo $row['id']; ?>" data-nivel="<?php echo $row['nivel']; ?>" onclick="actualizarUsuario(this)">
                                 <?php echo ($row['nivel'] == 1) ? 'Cambiar a Administrador' : 'Cambiar a Usuario'; ?>
@@ -83,32 +85,33 @@ button.rojo {
     </div>
 
     <script>
-        function actualizarUsuario(btn) {
-            var idUsuario = btn.getAttribute('data-id');
-            var nivelActual = btn.getAttribute('data-nivel');
+       function actualizarUsuario(btn) {
+    var idUsuario = btn.getAttribute('data-id');
+    var nivelActual = btn.getAttribute('data-nivel');
 
-     
-            var nuevoNivel = (nivelActual == 1) ? 0 : 1;
+    var nuevoNivel = (nivelActual == 1) ? 0 : 1;
 
-     
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'listar.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Actualizar el botón con el nuevo nivel
-                    btn.setAttribute('data-nivel', xhr.responseText);
-                    btn.innerText = (xhr.responseText == 1) ? 'Cambiar a Administrador' : 'Cambiar a Usuario';
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'listar.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // Actualizar el botón con el nuevo nivel
+            btn.setAttribute('data-nivel', xhr.responseText);
+            btn.innerText = (xhr.responseText == 1) ? 'Cambiar a Usuario' : 'Cambiar a Administrador';
 
-                    // Cambiar el color del botón según el nuevo nivel
-                    btn.classList.remove('verde', 'rojo');
-                    btn.classList.add(xhr.responseText == 0 ? 'verde' : 'rojo');
-                }
-            };
-            xhr.send('id=' + idUsuario + '&nivel=' + nuevoNivel);
+            btn.classList.remove('verde', 'rojo');
+            btn.classList.add(xhr.responseText == 0 ? 'verde' : 'rojo');
 
-            return false;
+            var fila = btn.closest('tr');
+            var nivelCell = fila.querySelector('.nivel');
+            nivelCell.innerText = (xhr.responseText == 1) ? 'Administrador' : 'Usuario';
         }
+    };
+    xhr.send('id=' + idUsuario + '&nivel=' + nuevoNivel);
+
+    return false;
+}
     </script>
 
     <?php
