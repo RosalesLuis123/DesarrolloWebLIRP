@@ -1,7 +1,6 @@
 <?php
 include('conexion.php');
 
-// Consulta para obtener títulos e imágenes de la base de datos
 $sql = "SELECT titulo, imagen FROM libros";
 $result = $con->query($sql);
 
@@ -15,21 +14,21 @@ if ($result->num_rows > 0) {
 
 $con->close();
 
-// Verificar si se ha enviado el formulario y si tiene la clave 'libro'
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['libro'])) {
-    // Obtener el libro seleccionado
+    
     $libroSeleccionado = $_POST['libro'];
 
-    // Buscar el libro seleccionado
+  
     $libro = array_filter($libros, function ($libro) use ($libroSeleccionado) {
         return $libro['titulo'] === $libroSeleccionado;
     });
 
-    // Mostrar la imagen del libro seleccionado
+
     $imagen = !empty($libro) ? reset($libro)['imagen'] : null;
 
     echo json_encode(['imagen' => $imagen]);
-    exit(); // Detener la ejecución para evitar que se imprima el HTML a continuación
+    exit(); 
 }
 ?>
 
@@ -68,13 +67,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['libro'])) {
 
         var libroSeleccionado = selectLibros.options[selectLibros.selectedIndex].value;
 
-        // Realizar una solicitud asíncrona al servidor
+     
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'datos.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                // Actualizar la imagen con la respuesta del servidor
+               
                 var respuesta = JSON.parse(xhr.responseText);
                 imagenLibro.src = respuesta.imagen;
             }

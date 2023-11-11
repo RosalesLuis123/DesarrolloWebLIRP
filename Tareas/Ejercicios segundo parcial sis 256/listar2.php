@@ -1,7 +1,6 @@
 <?php
 include('conexion.php');
 
-// Verificar si se proporciona un parámetro de ordenación
 $orden = isset($_GET['orden']) ? $_GET['orden'] : 'id';
 $sql = "SELECT id, imagen, titulo FROM libros ORDER BY $orden";
 $resultado = $con->query($sql);

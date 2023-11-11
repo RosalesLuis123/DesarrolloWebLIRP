@@ -87,10 +87,10 @@ button.rojo {
             var idUsuario = btn.getAttribute('data-id');
             var nivelActual = btn.getAttribute('data-nivel');
 
-            // Cambiar el nivel localmente antes de la respuesta del servidor
+     
             var nuevoNivel = (nivelActual == 1) ? 0 : 1;
 
-            // Realizar una solicitud asíncrona al servidor
+     
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'listar.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
