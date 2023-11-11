@@ -1,16 +1,21 @@
-
 <?php
 include('conexion.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['nivel'])) {
     $usuarioId = $_POST['id'];
     $nuevoNivel = $_POST['nivel'];
-    $updateSql = "UPDATE usuarios SET nivel = $nuevoNivel WHERE id = $usuarioId";
-    if ($con->query($updateSql)) {
-        echo '<script>window.location.href = "listar.php"; cargarContenido("listar.php");</script>';
+
+    // Evitar inyección de SQL usando sentencias preparadas
+    $updateSql = "UPDATE usuarios SET nivel = ? WHERE id = ?";
+    $stmt = $con->prepare($updateSql);
+    $stmt->bind_param("ii", $nuevoNivel, $usuarioId);
+
+    if ($stmt->execute()) {
+        // Devuelve el nuevo nivel para actualizar el botón en la interfaz
+        echo $nuevoNivel;
         exit;
     } else {
-        echo "Error al actualizar el nivel: " . $con->error;
+        echo "Error al actualizar el nivel: " . $stmt->error;
     }
 }
 
@@ -19,12 +24,32 @@ $resultado = $con->query($sql);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Usuarios</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+button {
+    width: 160px;
+    height: 60px;
+    font-size: 24px;
+    margin: 5px;
+}
+button.verde {
+    background-color: green;
+    color: white;
+}
+
+button.rojo {
+    background-color: red;
+    color: white;
+}
+
+</style>
 </head>
 
 <body>
@@ -45,19 +70,9 @@ $resultado = $con->query($sql);
                         <td><?php echo $row['usuario']; ?></td>
                         <td><?php echo $row['nombrecompleto']; ?></td>
                         <td>
-                            <?php if ($row['nivel'] == 1) { ?>
-                                <form method="post">
-                                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                    <input type="hidden" name="nivel" value="0">
-                                    <input type="submit" value="Cambiar a Administrador">
-                                </form>
-                            <?php } else { ?>
-                                <form method="post">
-                                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                    <input type="hidden" name="nivel" value="1">
-                                    <input type="submit" value="Cambiar a Usuario">
-                                </form>
-                            <?php } ?>
+                            <button class="usuario <?php echo ($row['nivel'] == 1) ? 'rojo' : 'verde'; ?>" data-id="<?php echo $row['id']; ?>" data-nivel="<?php echo $row['nivel']; ?>" onclick="actualizarUsuario(this)">
+                                <?php echo ($row['nivel'] == 1) ? 'Cambiar a Administrador' : 'Cambiar a Usuario'; ?>
+                            </button>
                         </td>
                     </tr>
                 <?php } ?>
@@ -67,10 +82,38 @@ $resultado = $con->query($sql);
         <?php } ?>
     </div>
 
+    <script>
+        function actualizarUsuario(btn) {
+            var idUsuario = btn.getAttribute('data-id');
+            var nivelActual = btn.getAttribute('data-nivel');
+
+            // Cambiar el nivel localmente antes de la respuesta del servidor
+            var nuevoNivel = (nivelActual == 1) ? 0 : 1;
+
+            // Realizar una solicitud asíncrona al servidor
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'listar.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Actualizar el botón con el nuevo nivel
+                    btn.setAttribute('data-nivel', xhr.responseText);
+                    btn.innerText = (xhr.responseText == 1) ? 'Cambiar a Administrador' : 'Cambiar a Usuario';
+
+                    // Cambiar el color del botón según el nuevo nivel
+                    btn.classList.remove('verde', 'rojo');
+                    btn.classList.add(xhr.responseText == 0 ? 'verde' : 'rojo');
+                }
+            };
+            xhr.send('id=' + idUsuario + '&nivel=' + nuevoNivel);
+
+            return false;
+        }
+    </script>
+
+    <?php
+    $con->close();
+    ?>
 </body>
 
 </html>
-
-<?php
-$con->close();
-?>

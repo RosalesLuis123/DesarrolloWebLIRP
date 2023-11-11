@@ -76,7 +76,7 @@ border: 1px solid black;
 }
 
 button {
-    width: 60px;
+    width: 90px;
     height: 60px;
     font-size: 24px;
     margin: 5px;
@@ -87,4 +87,8 @@ button {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
     margin: 0 auto; /* Centra el tablero */
+}
+.botones3{
+    width: 60px;
+    height: 20px;
 }
