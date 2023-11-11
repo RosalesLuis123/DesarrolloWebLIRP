@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 800px;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+#titulo{
+    width: 100%;
+    height: 30px;
+    background-color: orange;
+    border-bottom: 2px solid green;
+    color: white;
+    display: flex;
+    padding: 7px;
+    gap: 100px;
+}
+
+#menu{
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+}
+#Menus{
+    padding: 5px;
+    background-color: Red;
+    display: flex;
+    border: 2px solid green;
+    color: white;
+}
+
+.button-1{
+    padding: 5px;
+    background-color: white;
+    border: 2px solid rgb(181, 119, 4);
+    color: black;
+}
+.button-2{
+    padding: 5px;
+    background-color: white;
+    border: 2px solid rgb(181, 119, 4);
+    color: black;
+}
+.button-3{
+    padding: 5px;
+    background-color: rgb(255, 21, 0);
+    border: 2px solid rgb(181, 119, 4);
+    color: white;
+}
+.black{
+    background-color: black;
+    border: 2px solid black;
+}
+
+.contenido{
+    display: flex;
+}
+
+#principal{
+    width: 800px;
+    height: 100%;
+    background-color: white;
+    color: black;
+    border-bottom: 2px solid green;
+    display: flex;
+    padding: 7px;
+    gap: 100px;
+}
+.siuu{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    border-bottom: 2px solid green;
+    display: flex;
+    padding: 7px;
+    gap: 100px;
+}
+#Historial{
+    width: 100%;
+    height: 40px;
+    background-color: yellow;
+    border-bottom: 2px solid green;
+    display: flex;
+    padding: 7px;
+    gap: 100px;
+}
+#Resultado {
+    margin-top: 10px;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid orange;
+}
+
+tr, td, th, br {
+    border-collapse: collapse;
+    border: 2px solid black;
+    width: 100px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
