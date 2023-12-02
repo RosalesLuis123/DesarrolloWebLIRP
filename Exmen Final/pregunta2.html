@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Document</title>
+    <style>
+        .correcto {
+            color: green;
+        }
+        .incorrecto {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="resultado">
+        <div id="opciones">
+            <div id="opciones-texto">Operaciones</div>
+        </div>
+        <div id="botones">
+            <button class="boton2" onclick="cargarform('suma')">Suma</button>
+            <button class="boton2" onclick="cargarform('resta')">Resta</button>
+            <button class="boton2" onclick="cargarform('multiplicacion')">Multiplicacion</button>
+            <button class="boton2" onclick="cargarform('division')">Division</button>
+
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" value="5">
+            <button onclick="calificar()">Calificar</button>
+        </div>
+    </div>
+
+    <script>
+   function cargarform(operacion) {
+    document.getElementById('contenido').innerHTML = '';
+
+    const cantidad = document.getElementById('cantidad').value;
+
+    for (let i = 1; i <= cantidad; i++) {
+        const exercise = document.createElement('div');
+        exercise.textContent = generateExercise(operacion);
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = `answer${i}`;
+        exercise.appendChild(input);
+        document.getElementById('contenido').appendChild(exercise);
+    }
+}
+
+    function generateExercise(operacion) {
+    let A, B;
+
+    A = Math.floor(Math.random() * 10);
+    B = Math.floor(Math.random() * 10);
+
+    switch (operacion) {
+        case 'suma':
+            return `${A} + ${B} = `;
+        case 'resta':
+            return `${A} - ${B} = `;
+        case 'multiplicacion':
+            return `${A} * ${B} = `;
+        case 'division':
+            B = (B === 0) ? 1 : B;
+            return `${A} ÷ ${B} = `;
+        default:
+            return 'Invalid operation';
+    }
+}
+
+function calificar() {
+         
+        }
+    </script>
+</body>
+</html>

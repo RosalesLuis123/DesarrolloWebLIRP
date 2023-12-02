@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="card">
+        <div id="botones">
+            <input type="color" id="color">
+            <select name="div" id="divs">
+                <option value="titulo">Titulo</option>
+                <option value="menu">Menu</option>
+                <option value="sub_menu">Sub_menu</option>
+                <option value="contenido">Contenido</option>
+                <option value="pie">Pie</option>
+                <option value="detalles">Detalles</option>
+            </select>
+            <select name="div" id="cambio">
+                <option value="frente">Frente</option>
+                <option value="fondo">Fondo</option>
+            </select>
+            <button class="boton2" onclick="cambiarColor()">Mostrar</button>
+        </div>   
+    </div>
+</body>
+</html>
+
+<script>
+    function cambiarColor() {
+    var colorSeleccionado = document.getElementById('color').value;
+    var divSeleccionado = document.getElementById('divs').value;
+    var Cambio = document.getElementById('cambio').value;
+    if (Cambio ==='fondo'){ 
+    var div = document.getElementById(divSeleccionado);
+    if (div) {
+    div.style.backgroundColor = colorSeleccionado;
+    }}
+    else if (Cambio ==='frente'){
+    var div = document.getElementById(divSeleccionado);
+    if (div) {
+    div.style.color = colorSeleccionado;
+    }}
+    }
+
+</script>
